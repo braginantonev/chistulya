@@ -3,7 +3,7 @@
 
 using namespace modules;
 
-void Motors::moveMotor(AF_DCMotor* motor, int speed) {
+void motors::turnMotor(AF_DCMotor* motor, int speed) {
   if (speed > 0) {
     motor->setSpeed(speed);
     motor->run(FORWARD);
@@ -14,34 +14,34 @@ void Motors::moveMotor(AF_DCMotor* motor, int speed) {
   }
 }
 
-//Code - 00, Params - 2(motorIDX, speed)
-void Motors::moveMotor(int params[]) {
+//Code - 0, Params - 2(motorIDX, speed)
+void motors::moveMotor(int params[]) {
   AF_DCMotor* motor = pmotors[params[0]];
   int speed = params[1];
 
-  moveMotor(motor, speed);
+  turnMotor(motor, speed);
 }
 
-//Code - 01, Params - 1 (speed)
-void Motors::goForward(int params[]) {
-  moveMotor(&rightMotor, params[0]);
-  moveMotor(&leftMotor, params[0]);
+//Code - 1, Params - 1 (speed)
+void motors::goForward(int params[]) {
+  turnMotor(&rightMotor, params[0]);
+  turnMotor(&leftMotor, params[0]);
 }
 
-//Code - 1, Params - 0
-void Motors::stopMotors(int params[]) {
+//Code - 2, Params - 0
+void motors::stopMotors(int params[]) {
   rightMotor.run(RELEASE);
   leftMotor.run(RELEASE);
 }
 
-//Code - 2, Params - 0
-void Motors::stopAllMotors(int params[]) {
+//Code - 3, Params - 0
+void motors::stopAllMotors(int params[]) {
   for (int i = 0; i < MOTORS_COUNT; i++) {
     pmotors[i]->run(RELEASE);
   }
 }
 
-void Motors::init() {
+void motors::init() {
   for (int i = 0; i < MOTORS_COUNT; i++) {
     pmotors[i]->setSpeed(200);
     pmotors[i]->run(RELEASE);

@@ -4,6 +4,6 @@
 #include "servos.h"
 
 namespace scomm {
-  Motors motors;
-  Servos servos;
+  using namespace motors;
+  using namespace servos;
 }

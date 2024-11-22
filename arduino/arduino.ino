@@ -2,16 +2,20 @@
 #include "libs/modules.h"
 
 using namespace modules;
+using namespace scomm;
 
-void (*pcommands[]) (int[]) {
-
+void (*pcommands[])(int[]) = {
+  motors::moveMotor,
+  motors::goForward,
+  motors::stopMotors,
+  motors::stopAllMotors
 };
 
 void setup() {
   Serial.begin(9600);
 
-  scomm::motors.init();
-  scomm::servos.init();
+  motors::init();
+  servos::init();
 }
 
 void loop() {

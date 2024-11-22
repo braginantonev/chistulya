@@ -2,7 +2,6 @@
 
 #include <Servo.h>
 
-class Servos {
-public:
+namespace servos {
   void init();
-};
+}

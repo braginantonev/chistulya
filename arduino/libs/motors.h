@@ -2,22 +2,19 @@
 
 #include <AFMotor.h>
 
-class Motors {
-public:
+namespace motors {
   void init();
+  void turnMotor(AF_DCMotor*, int speed);
 
-  //Code - 00, Params - 2(motorIDX, speed)
+  //Code - 0, Params - 2(motorIDX, speed)
   void moveMotor(int params[]);
 
-  //Code - 01, Params - 1 (speed)
+  //Code - 1, Params - 1 (speed)
   void goForward(int params[]);
 
-  //Code - 02, Params - 0
+  //Code - 2, Params - 0
   void stopMotors(int params[]);
 
-  //Code - 03, Params - 0
+  //Code - 3, Params - 0
   void stopAllMotors(int params[]);
-
-private:
-  void moveMotor(AF_DCMotor*, int speed);
-};
+}

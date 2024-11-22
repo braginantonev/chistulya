@@ -3,7 +3,7 @@
 
 using namespace modules;
 
-void Servos::init() {
+void servos::init() {
   for (int i = 0; i < SERVOS_COUNT; i++)
     pservos[i]->attach(i+3); //3 4 5
 }
