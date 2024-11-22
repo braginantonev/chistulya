@@ -5,4 +5,5 @@
 
 namespace scomm {
   Motors motors;
+  Servos servos;
 }

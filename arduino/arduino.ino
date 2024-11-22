@@ -11,10 +11,7 @@ void setup() {
   Serial.begin(9600);
 
   scomm::motors.init();
-
-  //Initialize servos
-  for (int i = 0; i < SERVOS_COUNT; i++)
-    pservos[i]->attach(i+3); //3 4 5
+  scomm::servos.init();
 }
 
 void loop() {
