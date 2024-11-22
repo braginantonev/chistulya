@@ -5,7 +5,7 @@ using namespace modules;
 using namespace scomm;
 
 void (*pcommands[])(int[]) = {
-  motors::moveMotor,
+  motors::runMotor,
   motors::goForward,
   motors::stopMotors,
   motors::stopAllMotors

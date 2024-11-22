@@ -3,7 +3,7 @@
 
 using namespace modules;
 
-void motors::turnMotor(AF_DCMotor* motor, int speed) {
+void motors::runMotor(AF_DCMotor* motor, int speed) {
   if (speed > 0) {
     motor->setSpeed(speed);
     motor->run(FORWARD);
@@ -15,17 +15,17 @@ void motors::turnMotor(AF_DCMotor* motor, int speed) {
 }
 
 //Code - 0, Params - 2(motorIDX, speed)
-void motors::moveMotor(int params[]) {
+void motors::runMotor(int params[]) {
   AF_DCMotor* motor = pmotors[params[0]];
   int speed = params[1];
 
-  turnMotor(motor, speed);
+  runMotor(motor, speed);
 }
 
 //Code - 1, Params - 1 (speed)
 void motors::goForward(int params[]) {
-  turnMotor(&rightMotor, params[0]);
-  turnMotor(&leftMotor, params[0]);
+  runMotor(&rightMotor, params[0]);
+  runMotor(&leftMotor, params[0]);
 }
 
 //Code - 2, Params - 0
