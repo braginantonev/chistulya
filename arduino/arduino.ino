@@ -24,7 +24,7 @@ void run_command(String command) {
 
   //Пока параметров 3
   for (int i = 0; i < 3; i++) {
-    int commID = i == 0 ? 2 : 4*i+2;
+    int commID = 4*i+2;
     params[i] = command.substring(commID, commID+4).toInt();
     //Serial.println(params[i]);
   }
@@ -34,7 +34,6 @@ void run_command(String command) {
 
 void setup() {
   Serial.begin(9600);
-  run_command("01020003200789");
 
   motors::init();
   servos::init();
