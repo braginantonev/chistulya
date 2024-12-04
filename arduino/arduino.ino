@@ -40,5 +40,11 @@ void setup() {
 }
 
 void loop() {
-  delay(50);
+  while (Serial.available() == 0) {}
+  String command_str = Serial.readString();
+  command_str.trim();
+  digitalWrite(command_str.toInt(), HIGH);
+  Serial.println(command_str);
+  delay(1000);
+  digitalWrite(command_str.toInt(), LOW);
 }
