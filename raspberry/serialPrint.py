@@ -1,4 +1,5 @@
 import os
+import serial as sr
 
 SERIAL_PATH = "/dev/ttyACM0"
 isSerialInit = False
@@ -21,4 +22,6 @@ def run_command(command: str):
     if not isSerialInit:
         init()
 
-    os.system(f"echo {command} > {SERIAL_PATH}")
+    serial = sr.Serial(SERIAL_PATH)
+    serial.write(bytes(command, encoding='utf-8'))
+    serial.close()
