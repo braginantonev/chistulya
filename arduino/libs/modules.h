@@ -16,6 +16,5 @@ namespace modules {
   //--- Servos ---//
   static Servo leftServo;
   static Servo rightServo;
-  static Servo batteryServo;
-  static Servo* const pservos[SERVOS_COUNT] = {&leftServo, &rightServo, &batteryServo};
+  static Servo* const pservos[SERVOS_COUNT] = {&leftServo, &rightServo};
 }
