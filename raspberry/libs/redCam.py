@@ -1,28 +1,9 @@
 import cv2
 import numpy as np
-import serial as sr
+import serialPrint as sp
 
-isSerialInit = False
-SERIAL_PATH = '/dev/ttyUSB0'
-
-def init():
-    global isSerialInit
-    isSerialInit = True
-    print("Последовательный порт инициализирован")
-
-def run_command(command: str):
-    global isSerialInit
-    if not isSerialInit:
-        init()
-
-    try:
-        serial = sr.Serial(SERIAL_PATH, baudrate=9600, timeout=1)
-        serial.write(bytes(command, encoding='utf-8'))
-        print(f"Команда '{command}' отправлена через последовательный порт")
-        serial.close()
-    except Exception as e:
-        print(f"Ошибка при отправке команды: {e}")
-
+isEnabled = False
+video_capture = cv2.VideoCapture(0)
 
 def detect_red_color(frame):
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
@@ -38,9 +19,13 @@ def detect_red_color(frame):
 
     return mask
 
-video_capture = cv2.VideoCapture(0)
+def enable_cam():
+    isEnabled = True
 
-while True:
+def disable_cam():
+    isEnabled = False
+
+while isEnabled:
     ret, frame = video_capture.read()
     if not ret:
         break
@@ -49,7 +34,7 @@ while True:
 
     if cv2.countNonZero(red_mask) > 0:
         print("Красный цвет обнаружен!")
-        run_command("RED_DETECTED")
+        sp.run_command("05000000000000")
     red_result = cv2.bitwise_and(frame, frame, mask=red_mask)
 
     cv2.imshow('Original', frame)
