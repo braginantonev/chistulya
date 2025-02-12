@@ -1,5 +1,10 @@
-import libs.serialPrint as sp
+import libs.serialPrint as serp
+import libs.redCam as cam
+import libs.sonars as son
 
-sp.showInfo()
-sp.run_command("7")
+son.init_sonars()
+
+serp.showInfo()
+serp.run_command("7")
+
 
