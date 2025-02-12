@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-import serialPrint as sp
+import serialPrint as serp
 
 isEnabled = False
 video_capture = cv2.VideoCapture(0)
@@ -34,15 +34,15 @@ while isEnabled:
 
     if cv2.countNonZero(red_mask) > 0:
         print("Красный цвет обнаружен!")
-        sp.run_command("05000000000000")
-    red_result = cv2.bitwise_and(frame, frame, mask=red_mask)
+        serp.run_command("05000000000000")
+    #red_result = cv2.bitwise_and(frame, frame, mask=red_mask)
 
-    cv2.imshow('Original', frame)
-    cv2.imshow('Red Mask', red_mask)
-    cv2.imshow('Red Result', red_result)
+    #cv2.imshow('Original', frame)
+    #cv2.imshow('Red Mask', red_mask)
+    #cv2.imshow('Red Result', red_result)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+    #if cv2.waitKey(1) & 0xFF == ord('q'):
+        #break
 
 video_capture.release()
-cv2.destroyAllWindows()
+#cv2.destroyAllWindows()
