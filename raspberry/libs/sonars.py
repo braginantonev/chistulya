@@ -14,6 +14,9 @@ TRIG_PULSE_DURATION_US = 10
 isInitialized = False
 
 def init_sonars():
+    if isInitialized:
+        return
+    
     print("Setting up sonars")
     print(gpio.VERSION)
     print(gpio.RPI_INFO)
