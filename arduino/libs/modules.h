@@ -5,7 +5,7 @@
 
 namespace modules {
   static const int MOTORS_COUNT = 3;
-  static const int SERVOS_COUNT = 3;
+  static const int SERVOS_COUNT = 2;
 
   //--- Motors ---//
   static AF_DCMotor leftMotor(1);
