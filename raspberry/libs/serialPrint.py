@@ -18,7 +18,7 @@ def showInfo():
     print(f"serial path - {SERIAL_PATH}\n")
 
 #print string command to serial arduino port
-def run_command(command: str):
+def send_command(command: str):
     if not isSerialInit:
         init()
 

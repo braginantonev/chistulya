@@ -34,7 +34,7 @@ while isEnabled:
 
     if cv2.countNonZero(red_mask) > 0:
         print("Красный цвет обнаружен!")
-        serp.run_command("05000000000000")
+        serp.send_command("05000000000000")
     #red_result = cv2.bitwise_and(frame, frame, mask=red_mask)
 
     #cv2.imshow('Original', frame)
