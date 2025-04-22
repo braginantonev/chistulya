@@ -1,5 +1,6 @@
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 import threading
+import re
 
 commands = []
 mux = threading.Lock()
@@ -21,10 +22,11 @@ def get_command():
 class CommandHandler(SimpleHTTPRequestHandler):
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])
-        post_data = self.rfile.read(content_length)
+        post_data = str(self.rfile.read(content_length)).split('\\n')
 
         mux.acquire()
-        commands.append(post_data.decode())
+        for line in post_data:
+            commands.append(re.sub('\D', '', line))
         mux.release()
 
         print(f"hello {commands}")
@@ -32,8 +34,7 @@ class CommandHandler(SimpleHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'text')
         self.end_headers()
-        response = commands[0]
-        self.wfile.write(response.encode('utf-8'))
+        #self.wfile.write(response.encode('utf-8'))
 
 def run(ip = "0.0.0.0", port: int = 8080):
     server_address = (ip, port)
