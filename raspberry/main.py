@@ -29,6 +29,7 @@ while (True):
         tm.sleep(1)
         continue
     
+    print(f"run_command {command[0]} in time {command[1]}")
     run_command(command[0])
     tm.sleep(command[1])
     server.complete_command()
