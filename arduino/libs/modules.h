@@ -8,9 +8,9 @@ namespace modules {
   static const int SERVOS_COUNT = 2;
 
   //--- Motors ---//
-  static AF_DCMotor leftMotor(1);
+  static AF_DCMotor leftMotor(4);
   static AF_DCMotor rightMotor(2);
-  static AF_DCMotor brushMotor(3);
+  static AF_DCMotor brushMotor(1);
   static AF_DCMotor* const pmotors[MOTORS_COUNT] = {&leftMotor, &rightMotor, &brushMotor};
 
   //--- Servos ---//
