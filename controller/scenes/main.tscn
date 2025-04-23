@@ -1,0 +1,237 @@
+[gd_scene load_steps=12 format=3 uid="uid://de4sm6jnb1827"]
+
+[ext_resource type="Texture2D" uid="uid://cjjyvu33bkxk4" path="res://assets/up_arrow_a2nytwgvxxvq.svg" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://do5d4kmvbu2pq" path="res://Main.cs" id="1_tipki"]
+[ext_resource type="Texture2D" uid="uid://c7t0m71q37yxq" path="res://assets/down_arrow_khekjhiu1phg(1).svg" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bkokdpapd363u" path="res://assets/right_arrow_ll55j0h88i2o.svg" id="3_tefeu"]
+[ext_resource type="Texture2D" uid="uid://eda42j6bcsst" path="res://assets/left_arrow_b5hqu8dra3y4.svg" id="4_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://cuioh65f44yib" path="res://assets/stop_fl4y00s0p2yw.svg" id="5_o6xl0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sgp6g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wfyh"]
+font_color = Color(1, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyhfs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o5qli"]
+
+[node name="Main" type="Control" node_paths=PackedStringArray("Request")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tipki")
+Request = NodePath("HTTPRequest")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[node name="ProgrammName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.038
+offset_left = 440.0
+offset_top = 24.0
+offset_right = -417.0
+offset_bottom = 0.0399933
+grow_horizontal = 2
+text = "Контроллер Чистюли
+(только для демонстрации)"
+label_settings = SubResource("LabelSettings_sgp6g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Configurations" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 0.178
+anchor_bottom = 0.13
+offset_left = 24.0
+offset_right = 9.59999
+offset_bottom = -1.00001
+text = "Конфигурация: "
+label_settings = SubResource("LabelSettings_0wfyh")
+
+[node name="CommandTime" type="Label" parent="."]
+layout_mode = 2
+anchor_top = 0.27
+anchor_right = 0.578
+anchor_bottom = 0.299
+offset_left = 24.0
+offset_top = -1.52588e-05
+offset_right = -193.4
+offset_bottom = -0.200012
+text = "Время выполнения команды: "
+label_settings = SubResource("LabelSettings_jyhfs")
+
+[node name="LineEdit" type="LineEdit" parent="CommandTime"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = -8.0
+offset_right = 584.0
+offset_bottom = 32.0
+placeholder_text = "Введите время выполнения команды"
+alignment = 1
+
+[node name="Speed" type="Label" parent="."]
+layout_mode = 2
+anchor_top = 0.15
+anchor_right = 0.444
+anchor_bottom = 0.179
+offset_left = 24.0
+offset_right = -252.2
+offset_bottom = -0.199997
+text = "Скорость:"
+label_settings = SubResource("LabelSettings_sugp2")
+language = "ru_RU"
+
+[node name="LineEdit" type="LineEdit" parent="Speed"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = -8.0
+offset_right = 440.0
+offset_bottom = 32.0
+placeholder_text = "Введите скорость моторов (от 0 до 255)"
+alignment = 1
+
+[node name="IP" type="Label" parent="."]
+layout_mode = 2
+anchor_top = 0.21
+anchor_right = 0.459
+anchor_bottom = 0.239
+offset_left = 24.0
+offset_right = -243.2
+offset_bottom = -0.200012
+text = "IP Чистюли: "
+label_settings = SubResource("LabelSettings_o5qli")
+
+[node name="LineEdit" type="LineEdit" parent="IP"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_left = 112.0
+offset_top = -10.3
+offset_right = 356.0
+offset_bottom = 30.734
+grow_horizontal = 2
+placeholder_text = "Введите IP (Стандартный: 196.168.13.111)"
+alignment = 1
+caret_blink = true
+
+[node name="Forward" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63
+anchor_top = 0.4
+anchor_right = 0.73
+anchor_bottom = 0.52
+offset_left = -3.05176e-05
+offset_bottom = -3.05176e-05
+icon = ExtResource("1_jyhfs")
+flat = true
+expand_icon = true
+
+[node name="Backward" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63
+anchor_top = 0.59
+anchor_right = 0.73
+anchor_bottom = 0.69
+offset_left = -3.05176e-05
+offset_top = -3.05176e-05
+offset_bottom = -6.10352e-05
+icon = ExtResource("2_tbgi4")
+flat = true
+expand_icon = true
+
+[node name="Right" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.49
+anchor_right = 0.85
+anchor_bottom = 0.59
+offset_left = -6.10352e-05
+offset_bottom = -3.05176e-05
+icon = ExtResource("3_tefeu")
+flat = true
+expand_icon = true
+
+[node name="Left" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.49
+anchor_right = 0.62
+anchor_bottom = 0.59
+offset_left = -3.05176e-05
+offset_bottom = -3.05176e-05
+icon = ExtResource("4_o6xl0")
+flat = true
+expand_icon = true
+
+[node name="Stop" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63
+anchor_top = 0.78
+anchor_right = 0.74
+anchor_bottom = 0.89
+offset_left = -3.05176e-05
+offset_bottom = -6.10352e-05
+icon = ExtResource("5_o6xl0")
+flat = true
+expand_icon = true
+
+[node name="RunBrush" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.35
+anchor_right = 0.211
+anchor_bottom = 0.42
+offset_top = -3.05176e-05
+offset_right = -55.8
+text = "Запустить щётку"
+expand_icon = true
+
+[node name="StopBrush" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.35
+anchor_right = 0.45
+anchor_bottom = 0.42
+offset_top = -3.05176e-05
+offset_right = -64.0
+text = "Остановить щетку"
+expand_icon = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="text_changed" from="CommandTime/LineEdit" to="." method="OnCommandTimeChanged"]
+[connection signal="text_changed" from="Speed/LineEdit" to="." method="OnSpeedChanged"]
+[connection signal="text_changed" from="IP/LineEdit" to="." method="OnIPChanged"]
+[connection signal="pressed" from="Forward" to="." method="OnForwardPressed"]
+[connection signal="pressed" from="Backward" to="." method="OnBackwardPressed"]
+[connection signal="pressed" from="Right" to="." method="OnRightPressed"]
+[connection signal="pressed" from="Left" to="." method="OnLeftPressed"]
+[connection signal="pressed" from="Stop" to="." method="OnStopPressed"]
+[connection signal="pressed" from="RunBrush" to="." method="OnRunBrushPressed"]
+[connection signal="pressed" from="StopBrush" to="." method="OnStopBrushPressed"]
