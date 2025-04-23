@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo python3 ~/chistulya/raspberry/main.py
+sudo python3 /home/pi/chistulya/raspberry/main.py
