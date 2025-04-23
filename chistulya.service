@@ -1,0 +1,13 @@
+[Unit]
+Description=robot chistulya server
+After=network.target
+
+[Service]
+ExecStart=/home/pi/chistulya/raspberry/start
+ExecReload=/home/pi/chistulya/raspberry/start
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=default.target
+RequiredBy=network.target
