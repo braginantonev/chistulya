@@ -55,3 +55,9 @@ void motors::stopAllMotors(int params[]) {
     pmotors[i]->run(RELEASE);
   }
 }
+
+// Code - 6, Params - 1
+void motors::backward(int params[]) {
+  runMotor(&rightMotor, -params[0]);
+  runMotor(&leftMotor, -params[0]);
+}

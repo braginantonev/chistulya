@@ -23,4 +23,7 @@ namespace motors {
 
   //Code - 5, Params - 0
   void stopAllMotors(int params[]);
+
+  // Code - 6, Params - 1
+  void backward(int params[]);
 }
