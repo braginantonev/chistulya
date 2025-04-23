@@ -3,10 +3,12 @@ Description=robot chistulya server
 After=network.target
 
 [Service]
-ExecStart=/home/pi/chistulya/raspberry/start
-ExecReload=/home/pi/chistulya/raspberry/start
+ExecStart=/home/pi/chistulya/start
+ExecReload=/home/pi/chistulya/start
 Type=simple
 Restart=always
+StandardOutput=file:/var/chistulya/log/service_output.log
+StandardError=file:/var/chistulya/log/service_errors.log
 
 [Install]
 WantedBy=default.target
